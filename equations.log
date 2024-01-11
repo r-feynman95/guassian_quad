@@ -1,0 +1,117 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.1.19)  11 JAN 2024 15:15
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/peter/OneDrive/Documents/GitHub/guassian_quad/equations.tex
+(c:/Users/peter/OneDrive/Documents/GitHub/guassian_quad/equations.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-01-16> (C:\Users\peter\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(C:\Users\peter\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (C:\Users\peter\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count193
+\l__pdf_internal_box=\box51
+) (equations.aux)
+\openout1 = `equations.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+
+Overfull \hbox (70.54979pt too wide) detected at line 35
+\OT1/cmr/m/n/10 180\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 42578125\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 427\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 32421875\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 351\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 9140625\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 117\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3046875\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 13\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 53515625\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 24609375
+ []
+
+
+Overfull \hbox (76.26506pt too wide) detected at line 38
+\OT1/cmr/m/n/10 344\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 44921875\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 902\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 12890625\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 854\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 6484375\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 351\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 9140625\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 58\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 65234375\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 70703125\OML/cmm/m/it/10 x
+ []
+
+
+Overfull \hbox (220.29329pt too wide) detected at line 41
+\OT1/cmr/m/n/10 660\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1943359375\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1894\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 470703125\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 2029\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7900390625\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 997\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 08984375\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 219\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 9462890625\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 17\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 595703125\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2255859375
+ []
+
+
+Overfull \hbox (236.00859pt too wide) detected at line 44
+\OT1/cmr/m/n/10 1269\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 6044921875\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3961\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 166015625\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 4736\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1767578125\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2706\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 38671875\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 747\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 8173828125\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 87\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 978515625\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 2\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 9326171875\OML/cmm/m/it/10 x
+ []
+
+
+Overfull \hbox (385.03683pt too wide) detected at line 47
+\OT1/cmr/m/n/10 2448\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 52294921875\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 8252\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 42919921875\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 10893\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2065429688\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 7104\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 26513671875\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 2368\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 08837890625\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 373\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 90869140625\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 21\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 99462890625\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 20947265625
+ []
+
+
+Overfull \hbox (400.75214pt too wide) detected at line 50
+\OT1/cmr/m/n/10 4733\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 81103515625\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 17139\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 6606445313\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 24757\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2875976563\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 18155\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3442382813\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 7104\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 26513671875\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1420\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 85302734375\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 124\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 63623046875\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 14208984375\OML/cmm/m/it/10 x
+ []
+
+
+Overfull \hbox (514.78027pt too wide) detected at line 53
+\OT1/cmr/m/n/10 9171\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 75888061523\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 35503\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5827636719\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 55703\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 8970947266\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 45388\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3605957031\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 20424\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7622680664\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4972\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 98559570313\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 592\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 022094726563\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 26\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 707763671875\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 196380615234375
+ []
+
+
+Overfull \hbox (515.49553pt too wide) detected at line 56
+\OT1/cmr/m/n/10 17804\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 002532959\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 73374\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0710449219\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 124262\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 539672852\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 111407\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 794189453\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 56735\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 4507446289\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 16339\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 8098144531\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 2486\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 49279785156\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 169\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 149169921875\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 33847045898438\OML/cmm/m/it/10 x
+ []
+
+
+Overfull \hbox (614.52362pt too wide) detected at line 59
+\OT1/cmr/m/n/10 34618\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 8938140869\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 151334\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 021530151\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 275152\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 766418457\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 269235\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 502624512\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 153185\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 717010498\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 51061\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 905670166\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 9531\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 55572509766\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 888\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 033142089844\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 31\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7154693603516\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 185470581054688
+ []
+
+
+Overfull \hbox (620.23889pt too wide) detected at line 62
+\OT1/cmr/m/n/10 67415\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7405853271\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 311570\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 044326782\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 605336\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 086120605\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 642023\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 121643066\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 403853\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 253936768\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 153185\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 717010498\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 34041\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2704467773\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4084\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 95245361328\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 222\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 008285522461\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 52394104003906\OML/cmm/m/it/10 x
+ []
+
+[1
+
+{C:/Users/peter/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (equations.aux) ) 
+Here is how much of TeX's memory you used:
+ 430 strings out of 476404
+ 8632 string characters out of 2789524
+ 1855324 words of memory out of 3000000
+ 20872 multiletter control sequences out of 15000+600000
+ 512287 words of font info for 32 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 34i,5n,38p,319b,107s stack positions out of 10000i,1000n,20000p,200000b,80000s
+<C:/Users/peter/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/peter/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/peter/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/peter/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on equations.pdf (1 page, 41801 bytes).
+PDF statistics:
+ 26 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

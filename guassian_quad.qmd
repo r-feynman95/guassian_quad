@@ -1,0 +1,72 @@
+Using the fourth representation of Legendre's Polynomial found on this wiki, we can generate the P_n(x) for any value of n. We will then evaluate these polyomials on the domains (-1, 1) to determine vector b and the solve the Vaderman Matrix to determine the weights of the Gaussian Quadrature. 
+
+```{python}
+import math
+from sympy import symbols, integrate, init_printing, Add, pprint, latex, integrate
+```
+
+```{python}
+# Generate n number of Legendre Polynomials of the first kind
+
+# Define the symbolic variable
+x = symbols('x')
+
+# Store n legrende polys
+Pn = []
+
+max_degree = 20
+
+for n in range(0,max_degree):
+    limit = math.floor(n/2)
+
+    terms = []
+    # Calculate Terms of Polynomial
+    for k in range(0, limit+1):
+        term = (1/2**n) * (-1) ** k * math.comb(n,k) * math.comb(2*n - 2*k,n) * x ** (n-2*k)
+        terms.append(term)
+
+    # Sum terms to polynomial, pretty print
+    Pn.append(Add(*terms))
+
+'''
+# Open the file for writing
+with open(file_name, 'w') as file:
+    # Write LaTeX preamble and begin document
+    file.write("\\documentclass{article}\n")
+    file.write("\\begin{document}\n")
+
+    # Write each equation in LaTeX format to the file
+    for equation in Pn:
+        file.write("\\begin{equation}\n")
+        file.write(latex(equation) + "\n")
+        file.write("\\end{equation}\n")
+
+    # End document
+    file.write("\\end{document}\n")
+'''
+```
+
+Now that we can generate P_n(x) for any value n and have confirmed that the output is correct we need to evaluate the integral of each equation over the domain (-1,1) in order to construct the nxn matrix. 
+
+Update: The issue with this is that Legendre Polynomials are constructed in the manner that both the function itself and the product of two legendre polynomials of different degrees are orthogonal over the range [-1,1]. This means that the value of the integral should be 0 for n>0. 
+
+Also the legendre(n,x) function from sympy could have been used to generate the legendre polynomials. 
+
+
+```{python}
+# Build b vector
+degree = 10
+b = []
+
+# limits of integration
+lower = 0
+upper = 1
+
+for i in range(0, degree):
+    int_Pn = integrate(Pn[i], (x, lower, upper))
+    b.append(int_Pn)
+
+print(b)
+
+
+```
