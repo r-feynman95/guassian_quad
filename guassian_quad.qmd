@@ -167,11 +167,12 @@ print("Roots:", roots)
 Now I need to construct the Vanderman matrix. That is, I need to evaluate each value of the roots (x_1, ..., x_i) for the function x^0, ..., x^n then solve this system of equations for the weights.
 
 ```{python}
-
-
+def create_vandermonde(n):
+    vander_matrix = np.vander(roots_legendre_poly(n), increasing = True).T
+    return vander_matrix
 ```
 
-
+At this point we have the full vandermonde matrix evaluated at the Legendre Polynomial roots as well as the monomials of increasing power evaluated at increasing powers. The next step is to solve this system of equations. 
 
 
 https://engcourses-uofa.ca/books/numericalanalysis/numerical-integration/gauss-quadrature/#introduction2
