@@ -2,8 +2,13 @@ Using the fourth representation of Legendre's Polynomial found on this wiki, we 
 
 ```{python}
 import math
-from sympy import symbols, integrate, init_printing, Add, pprint, latex, integrate
+import numpy as np
+from sympy import symbols, integrate, init_printing, Add, pprint, latex, integrate, Poly
+
+init_printing(use_latex=True)
 ```
+
+Currently this generate all of Legendre Polynomials from 0 to n. For the purposes of the project we will need only a function that takes in a symbolic variable and returns the nth Legendre polynial. 
 
 ```{python}
 # Generate n number of Legendre Polynomials of the first kind
@@ -52,6 +57,7 @@ Update: The issue with this is that Legendre Polynomials are constructed in the 
 
 Also the legendre(n,x) function from sympy could have been used to generate the legendre polynomials. 
 
+I do not think the following cell is important for what we are exploring, but calculates the integral over the range [0,1] of the Legendre Polynomials that were generate above.
 
 ```{python}
 # Build b vector
@@ -67,6 +73,88 @@ for i in range(0, degree):
     b.append(int_Pn)
 
 print(b)
+```
+
+The following cell contructs the b vector where each cell is the soltion to the integral on the domain [-1,1] of the function x^n for n > 0 where n is an integer. 
+
+```{python}
+def generate_b(n):
+
+    lower = -1
+    upper = 1
+
+    x = symbols('x')
+    b = []
+
+    for i in range(0,n):
+        int_xn = integrate(x ** i, (x, lower, upper))
+        b.append(int_xn)
+    
+    return b
+```
+
+Then we will find the roots of the corresponding Legendre Polynomial which we know falls in the range [-1,1] based on the properties of Legendre Polynomials (why exactly this works would be an interesting proof to look into. I think it has something to do with the remainder after polynomial division). 
+
+```{python}
+def roots_legendre_poly(n):
+    limit = math.floor(n/2)
+    terms = []
+
+    # Calculate Terms of Polynomial
+    for k in range(0, limit+1):
+        term = (1/2**n) * (-1) ** k * math.comb(n,k) * math.comb(2*n - 2*k,n) * x ** (n-2*k)
+        terms.append(term)
+
+    # Add these terms together into a single polymial (Probably a faster way to do this)
+    pn_poly = Poly(sum(terms), x)
+
+    #display(pn_poly)
+
+    pn_coefficients = pn_poly.all_coeffs()
+
+    #print(pn_coefficients)
+
+    pn_roots = np.roots(pn_coefficients)
+
+    return pn_roots
+```
+
+The above code runs into an issue for n > 40 where it incorrectly calculates the root. Keeping this here for demonstration as it is an example of the necessity for better methods of finding roots. Below we take another approach using the scipy.optimize.root function instead. I believe (but need to do more research about the specifics) that this root finding approach using the Jacobi matrix and the QR algorithm for determining roots of polynomials. 
+
+```{python}
 
 
+```
+
+https://engcourses-uofa.ca/books/numericalanalysis/numerical-integration/gauss-quadrature/#introduction2
+
+```{python}
+|import sympy as sp
+
+sp.init_printing(use_latex=True)
+
+x, x1, x2 = sp.symbols('x x1 x2')
+a0, a1, a2, a3 = sp.symbols('a0 a1 a2 a3')
+w1, w2 = sp.symbols('w1 w2')
+
+f = a0 + a1*x + a2*x**2 + a3*x**3
+
+I1 = sp.integrate(f, (x, -1, 1))
+I2 = w1*(f.subs(x, x1)) + w2*(f.subs(x, x2))
+
+display("I1: ",I1)
+display("I2: ",I2)
+
+Eq1 = sp.expand(I1 - I2).coeff(a0)
+Eq2 = sp.expand(I1 - I2).coeff(a1)
+Eq3 = sp.expand(I1 - I2).coeff(a2)
+Eq4 = sp.expand(I1 - I2).coeff(a3)
+
+display("Eq1: ",Eq1)
+display("Eq2: ",Eq2)
+display("Eq3: ",Eq3)
+display("Eq4: ",Eq4)
+
+sol = list(sp.nonlinsolve([Eq1, Eq2, Eq3, Eq4], [x1, x2, w1, w2]))
+display(sol)
 ```
