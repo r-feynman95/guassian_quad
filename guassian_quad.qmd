@@ -3,7 +3,9 @@ Using the fourth representation of Legendre's Polynomial found on this wiki, we 
 ```{python}
 import math
 import numpy as np
+from scipy.optimize import root
 from sympy import symbols, integrate, init_printing, Add, pprint, latex, integrate, Poly
+
 
 init_printing(use_latex=True)
 ```
@@ -95,10 +97,12 @@ def generate_b(n):
 
 Then we will find the roots of the corresponding Legendre Polynomial which we know falls in the range [-1,1] based on the properties of Legendre Polynomials (why exactly this works would be an interesting proof to look into. I think it has something to do with the remainder after polynomial division). 
 
+
 ```{python}
-def roots_legendre_poly(n):
+def roots_legendre_poly_np(n):
     limit = math.floor(n/2)
     terms = []
+    x = symbols('x')
 
     # Calculate Terms of Polynomial
     for k in range(0, limit+1):
@@ -117,14 +121,58 @@ def roots_legendre_poly(n):
     pn_roots = np.roots(pn_coefficients)
 
     return pn_roots
+
 ```
 
 The above code runs into an issue for n > 40 where it incorrectly calculates the root. Keeping this here for demonstration as it is an example of the necessity for better methods of finding roots. Below we take another approach using the scipy.optimize.root function instead. I believe (but need to do more research about the specifics) that this root finding approach using the Jacobi matrix and the QR algorithm for determining roots of polynomials. 
+
+The below code uses the scipy.optimize.root function which is a more robust root solver. This fixes the issue with n> 40. 
+
+```{python}
+def roots_legendre_poly(n):
+    limit = math.floor(n/2)
+    terms = []
+    x = symbols('x')
+
+    # Calculate Terms of Polynomial
+    for k in range(0, limit+1):
+        term = (1/2**n) * (-1) ** k * math.comb(n,k) * math.comb(2*n - 2*k,n) * x ** (n-2*k)
+        terms.append(term)
+
+    # Add these terms together into a single polynomial
+    pn_poly = Poly(sum(terms), x)
+
+    # Extract coefficients
+    pn_coefficients = pn_poly.all_coeffs()
+
+    # Define the function for root finding
+    def f(x_val):
+        return [pn_poly.subs(x, val) for val in x_val]
+
+    # Initial guess for the roots
+    initial_guess = np.linspace(-1, 1, n)
+
+    # Find the roots using scipy.optimize.root
+    result = root(f, initial_guess, method='hybr')
+
+    pn_roots = result.x
+
+    return pn_roots
+
+# Example usage:
+roots = roots_legendre_poly(4)
+print("Roots:", roots)
+```
+
+Now I need to construct the Vanderman matrix. That is, I need to evaluate each value of the roots (x_1, ..., x_i) for the function x^0, ..., x^n then solve this system of equations for the weights.
 
 ```{python}
 
 
 ```
+
+
+
 
 https://engcourses-uofa.ca/books/numericalanalysis/numerical-integration/gauss-quadrature/#introduction2
 
