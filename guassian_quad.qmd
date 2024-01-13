@@ -6,6 +6,8 @@ import numpy as np
 from scipy.optimize import root
 from sympy import symbols, integrate, init_printing, Add, pprint, latex, integrate, Poly
 
+from scipy.linalg import lstsq
+
 
 init_printing(use_latex=True)
 ```
@@ -158,21 +160,102 @@ def roots_legendre_poly(n):
     pn_roots = result.x
 
     return pn_roots
-
-# Example usage:
-roots = roots_legendre_poly(4)
-print("Roots:", roots)
 ```
 
 Now I need to construct the Vanderman matrix. That is, I need to evaluate each value of the roots (x_1, ..., x_i) for the function x^0, ..., x^n then solve this system of equations for the weights.
 
 ```{python}
 def create_vandermonde(n):
-    vander_matrix = np.vander(roots_legendre_poly(n), increasing = True).T
-    return vander_matrix
+    roots_l = roots_legendre_poly(n)
+    vander_matrix = np.vander(roots_l, increasing = True).T
+    return vander_matrix, roots_l
 ```
 
 At this point we have the full vandermonde matrix evaluated at the Legendre Polynomial roots as well as the monomials of increasing power evaluated at increasing powers. The next step is to solve this system of equations. 
+
+
+```{python}
+def calculate_weights(n):  
+    A, roots = create_vandermonde(n)
+    b = generate_b(n)
+
+    # Assuming generate_b returns a list, convert it to NumPy array
+    A = np.array(A)
+    b = np.array(b)
+
+    A = A.astype(np.float64)
+    b = b.astype(np.float64)
+
+    '''
+    print(b)
+    print(A)
+
+    print("Dimensions of A:", A.shape)
+    print("Dimensions of b:", b.shape)
+
+    det_A = np.linalg.det(A)
+    cond_A = np.linalg.cond(A)
+    print("Determinant of A:", det_A)
+    print("Condition number of A:", cond_A)
+
+    print(A.dtype, b.dtype)
+    '''
+
+
+    #w = np.linalg.solve(A,b.T)
+    w, _, _, _ = lstsq(A, b.T)
+
+    return roots, w
+```
+
+Check solution by looping from 1 to 10 and printing weights and corresponing roots
+
+```{python}
+max = 6
+
+for i in range(2, max+1):
+    w, r = calculate_weights(i)
+
+    
+    print("n = " + str(i))
+    print("Weights\tRoots")
+    for loop_weight, loop_root in zip(w, r):
+        print(f"{loop_weight:.4f}\t{loop_root:.4f}")
+    print("\n")
+```
+
+Create a Latex Document of the Tables
+
+```{python}
+max_n = 6
+results = []
+
+for i in range(2, max_n + 1):
+    result = calculate_weights(i)
+    results.append(result)
+
+# Create LaTeX tables
+latex_tables = []
+for result in results:
+    table = {'n': result['n'], 'weights': result['weights'], 'roots': result['roots']}
+    latex_tables.append(table)
+
+# Write LaTeX document
+latex_document = "\\documentclass{article}\n\\usepackage{amsmath}\n\\begin{document}\n"
+
+for table in latex_tables:
+    latex_document += f"\\section*{{Table for n={table['n']}}}\n"
+    latex_document += tabulate(table, headers='keys', tablefmt='latex_raw') + "\n\n"
+
+latex_document += "\\end{document}"
+
+# Save LaTeX document to a file
+with open('output.tex', 'w') as file:
+    file.write(latex_document)
+```
+
+
+
 
 
 https://engcourses-uofa.ca/books/numericalanalysis/numerical-integration/gauss-quadrature/#introduction2
