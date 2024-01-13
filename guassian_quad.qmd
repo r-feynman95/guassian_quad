@@ -7,6 +7,7 @@ from scipy.optimize import root
 from sympy import symbols, integrate, init_printing, Add, pprint, latex, integrate, Poly
 
 from scipy.linalg import lstsq
+from tabulate import tabulate
 
 
 init_printing(use_latex=True)
@@ -186,41 +187,24 @@ def calculate_weights(n):
     A = A.astype(np.float64)
     b = b.astype(np.float64)
 
-    '''
-    print(b)
-    print(A)
-
-    print("Dimensions of A:", A.shape)
-    print("Dimensions of b:", b.shape)
-
-    det_A = np.linalg.det(A)
-    cond_A = np.linalg.cond(A)
-    print("Determinant of A:", det_A)
-    print("Condition number of A:", cond_A)
-
-    print(A.dtype, b.dtype)
-    '''
-
-
     #w = np.linalg.solve(A,b.T)
-    w, _, _, _ = lstsq(A, b.T)
+    weights, _, _, _ = lstsq(A, b.T)
 
-    return roots, w
+    #return roots, w
+    return {'n': n, 'weights': weights, 'roots': roots}
 ```
 
 Check solution by looping from 1 to 10 and printing weights and corresponing roots
 
 ```{python}
-max = 6
+max_n = 6
 
-for i in range(2, max+1):
-    w, r = calculate_weights(i)
+for i in range(2, max_n + 1):
+    result = calculate_weights(i)
 
-    
-    print("n = " + str(i))
-    print("Weights\tRoots")
-    for loop_weight, loop_root in zip(w, r):
-        print(f"{loop_weight:.4f}\t{loop_root:.4f}")
+    print(f"Table for n = {result['n']}")
+    table = {'Weights': result['weights'], 'Roots': result['roots']}
+    print(tabulate(table, headers='keys', tablefmt='fancy_grid'))
     print("\n")
 ```
 
@@ -245,7 +229,11 @@ latex_document = "\\documentclass{article}\n\\usepackage{amsmath}\n\\begin{docum
 
 for table in latex_tables:
     latex_document += f"\\section*{{Table for n={table['n']}}}\n"
-    latex_document += tabulate(table, headers='keys', tablefmt='latex_raw') + "\n\n"
+    
+    # Create a list of lists (rows) for tabulate
+    table_data = [['i', 'Weights', 'Roots']] + list(zip(range(1, len(table['weights']) + 1), table['weights'], table['roots']))
+    
+    latex_document += tabulate(table_data, headers='firstrow', tablefmt='latex_raw') + "\n\n"
 
 latex_document += "\\end{document}"
 
@@ -253,9 +241,6 @@ latex_document += "\\end{document}"
 with open('output.tex', 'w') as file:
     file.write(latex_document)
 ```
-
-
-
 
 
 https://engcourses-uofa.ca/books/numericalanalysis/numerical-integration/gauss-quadrature/#introduction2

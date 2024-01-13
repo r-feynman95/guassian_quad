@@ -1,0 +1,25 @@
+# Fdb version 4
+["pdflatex"] 1705107140 "c:/Users/peter/OneDrive/Documents/GitHub/guassian_quad/output.tex" "output.pdf" "output" 1705107141 0
+  "C:/Users/peter/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1705033216 81074 e9df683c7a67b773afe1722d345afa16 ""
+  "C:/Users/peter/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1674170167 23172981 cf04f7896ae95e8fd6fbfc2b39775014 ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr12.tfm" 1136765053 1288 655e228510b4c2a1abe905c368440826 ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsbsy.sty" 1655058189 2222 78b930a5a6e3dc2ac69b78c2057b94d7 ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsgen.sty" 1655058191 4173 c989ee3ced31418e3593916ab26c793a ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsmath.sty" 1655058191 88393 1adf6fa3f245270d06e3d4f8910f7fc5 ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsopn.sty" 1655058192 4474 f04cd1cc7bd76eb033e6fb12eb6a0d77 ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amstext.sty" 1655058193 2444 70065bddd85997dc1fd0bb7ae634e5fa ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/tex/latex/base/article.cls" 1669844196 20144 d5ecf0a5140c8d8d8b72cbe86e320eff ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo" 1669844196 8448 c33a4e1cb35cee9b33c2b21033b73e39 ""
+  "C:/Users/peter/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1673900822 30429 213676d4c7327a21d91ddaed900e7b81 ""
+  "c:/Users/peter/OneDrive/Documents/GitHub/guassian_quad/output.tex" 1705107126 1346 20a1640b0025d985b4ed75cdc983967e ""
+  "output.aux" 1705107141 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "output.tex" 1705107126 1346 20a1640b0025d985b4ed75cdc983967e ""
+  (generated)
+  "output.aux"
+  "output.log"
+  "output.pdf"
+  (rewritten before read)
