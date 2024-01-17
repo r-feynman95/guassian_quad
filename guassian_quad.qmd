@@ -1,6 +1,3 @@
-
-
-
 We are interested in numerically evaluating a definite integral on an interval [a,b]. The Newton-Cotes method draws a polymial function that interpolates the function on a set of points. Since it is simple to evaluate the definite integral of a polynomial this method can be used to approximate the value of the polynomial.
 
 We can also approach the problem of evaluating a definite integral by finding a low degree polymial that approximates the function well in the sense of least squares regresson and use the integral of this function as the approximation. This method is called the Gaussian quadrature method and will be the focus of the following program. We will compare the accuracy and speed of this method agains the Newton-Cotes method,the Simpsons rule and against itself as the number of quadrature points is increased. 
@@ -10,7 +7,7 @@ To begin we will import the required Python libraries. Of specific importance wi
 ```{python}
 import math
 import numpy as np
-from sympy import symbols, integrate, init_printing, pprint, latex, integrate, Poly
+from sympy import symbols, integrate, init_printing, pprint, latex, integrate, Poly, cos, lambdify
 from scipy.linalg import lstsq
 from scipy.optimize import root
 from tabulate import tabulate
@@ -29,11 +26,22 @@ on the interval [a,b]. With the interpolating polynomial P(x) determined we can 
 \[ \int_{-1}^1 P(x) dx\]
 
 ```{python}
+
+# Define the interval, number of points to evenly divide the interval by and x as a symbolic variable
 interval = [-1,1]
+n = 3
+quadrature_points = np.linspace(interval[0], interval[1], n)
 x = symbols('x')
 
 # Create the y vector by evaluating points within the interval at the function f(x)
 f = cos(x)
+
+y = lambdify(x, y, 'numpy')
+
+# Evaluate the function at the quadrature points
+result = y(quadrature_points)
+
+
 
 ```
 
