@@ -1,12 +1,13 @@
-We are interested in numerically evaluating a definite integral on an interval [a,b]. The Newton-Cotes method draws a polymial function that interpolates the function on a set of points. Since it is simple to evaluate the definite integral of a polynomial this method can be used to approximate the value of the polynomial.
+We are interested in numerically evaluating a definite integral on an interval [a,b]. The Newton-Cotes method draws a polymial function that interpolates the function on a set of points. Since it is simple to evaluate the definite integral of a polynomial, this method can be used to approximate the value of the definte integral.
 
-We can also approach the problem of evaluating a definite integral by finding a low degree polymial that approximates the function well in the sense of least squares regresson and use the integral of this function as the approximation. This method is called the Gaussian quadrature method and will be the focus of the following program. We will compare the accuracy and speed of this method agains the Newton-Cotes method,the Simpsons rule and against itself as the number of quadrature points is increased. 
+We can also approach the problem of evaluating a definite integral by finding a low degree polymial that approximates the function well in the sense of least squares regression and use the integral of this function as the approximation. This method is called the Gaussian quadrature method and will be the focus of the following program. We will compare the accuracy and speed of this method against the Newton-Cotes method,the Simpsons rule and against itself as the number of quadrature points is increased. 
 
-To begin we will import the required Python libraries. Of specific importance will be the sympy library that provides tools for symbolic compuation. The scipy module will provide the tools required to effectively find the roots of nonlinear equations required to solve the Vandermonde matrix as well as performing least square regression 
+To begin we will import the required Python libraries. Of specific importance will be the sympy library that provides tools for symbolic compuation, the scipy module which provides the tools required to effectively find the roots of nonlinear equations required to solve the Vandermonde matrix as well as performing least square regression, and the numpy library which includes many useful matrix operations. 
 
 ```{python}
 import math
 import numpy as np
+import matplotlib.pyplot as plt
 from sympy import symbols, integrate, init_printing, pprint, latex, integrate, Poly, cos, lambdify
 from scipy.linalg import lstsq
 from scipy.optimize import root
@@ -15,7 +16,7 @@ from tabulate import tabulate
 init_printing(use_latex=True)
 ```
 
-Before developing the support of the Guassian Qudrature method let's, develop a method for determining the coeffiecient of an interpolating polynomial of degree n for any input set of data on the interval [-1, 1]. The choice of this interval will be of special importance when discussing Legendre polynomials. 
+Before developing the support of the Guassian Qudrature method let's develop a method for determining the coeffiecient of an interpolating polynomial of degree n for any input set of data on the interval [-1, 1]. The choice of this interval will be of special importance when discussing Legendre polynomials. 
 
 To motivate this exploration we will find an interpolating polynomial of the function 
 
@@ -26,7 +27,6 @@ on the interval [a,b]. With the interpolating polynomial P(x) determined we can 
 \[ \int_{-1}^1 P(x) dx\]
 
 ```{python}
-
 # Define the interval, number of points to evenly divide the interval by and x as a symbolic variable
 interval = [-1,1]
 n = 3
@@ -36,17 +36,56 @@ x = symbols('x')
 # Create the y vector by evaluating points within the interval at the function f(x)
 f = cos(x)
 
-y = lambdify(x, y, 'numpy')
+y = lambdify(x, f, 'numpy')
 
 # Evaluate the function at the quadrature points
 result = y(quadrature_points)
 
+# Set a custom color palette (1980's brown and orange office vibe)
+custom_palette =  ['#E07A5F', '#81B29A', '#FEEAC9', '#3D405B', '#F4F1DE', '#2A2B2A', '#D3D3D3']
 
+# Plot the function
+x_values = np.linspace(interval[0], interval[1], 1000)
+plt.plot(x_values, lambdify(x, f, 'numpy')(x_values), label='cos(x)', color=custom_palette[0])
 
+# Plot the evaluated points
+plt.scatter(quadrature_points, result, label='Quadrature Points',  color=custom_palette[1])
+
+# Add labels and legend\
+plt.title('Function and Quadrature Points', color=custom_palette[3])
+plt.xlabel('x', color = custom_palette[3])
+plt.ylabel('y', color = custom_palette[3])
+plt.legend()
+
+# Set the plot background color
+plt.gca().set_facecolor(custom_palette[2])
+plt.gcf().set_facecolor(custom_palette[6])
+
+# Set axis color
+plt.gca().spines['bottom'].set_color(custom_palette[5])
+plt.gca().spines['top'].set_color(custom_palette[5])
+plt.gca().spines['right'].set_color(custom_palette[5])
+plt.gca().spines['left'].set_color(custom_palette[5])
+
+# Set tick colors to a darker hue
+tick_color = '#1F3552'
+plt.xticks(np.arange(interval[0], interval[1] + 0.1, 0.5))  # Set ticks at every 0.5 interval
+plt.tick_params(axis='x', colors=tick_color, which='both', size=10, width=2)
+plt.tick_params(axis='y', colors=tick_color, which='both', size=10, width=2)
+
+# Show the plot
+plt.show()
 ```
 
+We can now see the function $f(x) = cos(x)$ and the interpolating points at -1, 0, 1. Now we will find a 3rd degree polynomial that interpolates these three points using a Vandermann matrix. We have created the y vector of points that need to be interpolated, and can now solve the sytstem of equations
 
+\[Vc = y\]
 
+where y is the the values of the interpolation points evaluted at $f(x)$ and V is the Vandermonde matrix. 
+
+```{python}
+
+```
 
 Currently this generate all of Legendre Polynomials from 0 to n. For the purposes of the project we will need only a function that takes in a symbolic variable and returns the nth Legendre polynial. 
 
