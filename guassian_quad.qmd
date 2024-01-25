@@ -84,6 +84,15 @@ We can now see the function $f(x) = cos(x)$ and the interpolating points at -1, 
 where y is the the values of the interpolation points evaluted at $f(x)$ and V is the Vandermonde matrix. 
 
 ```{python}
+V = np.vander(quadrature_points, increasing=False)
+
+print(V)
+
+# Solve the system of linear equations to find interpolating polynomial
+c = np.linalg.solve(V, result)
+
+def interpolated_function(x):
+    return np.polyval(coefficients, x)
 
 ```
 
