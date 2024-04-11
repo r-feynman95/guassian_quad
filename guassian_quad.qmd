@@ -1,3 +1,9 @@
+---
+author: Ethan Peters
+title: Application of Gaussian Quadrature Method to Determine Thermal Conductivity of Aerogel
+format: html
+---
+
 We are interested in numerically evaluating a definite integral on an interval [a,b]. The Newton-Cotes method draws a polymial function that interpolates the function on a set of points. Since it is simple to evaluate the definite integral of a polynomial, this method can be used to approximate the value of the definte integral.
 
 We can also approach the problem of evaluating a definite integral by finding a low degree polymial that approximates the function well in the sense of least squares regression and use the integral of this function as the approximation. This method is called the Gaussian quadrature method and will be the focus of the following program. We will compare the accuracy and speed of this method against the Newton-Cotes method,the Simpsons rule and against itself as the number of quadrature points is increased. 
