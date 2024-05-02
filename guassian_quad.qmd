@@ -4,17 +4,19 @@ title: Application of Gaussian Quadrature Method to Determine Thermal Conductivi
 format: html
 ---
 
-We are interested in numerically evaluating a definite integral on an interval [a,b]. The Newton-Cotes method draws a polymial function that interpolates the function on a set of points. Since it is simple to evaluate the definite integral of a polynomial, this method can be used to approximate the value of the definte integral.
+# Introduction
 
-We can also approach the problem of evaluating a definite integral by finding a low degree polymial that approximates the function well in the sense of least squares regression and use the integral of this function as the approximation. This method is called the Gaussian quadrature method and will be the focus of the following program. We will compare the accuracy and speed of this method against the Newton-Cotes method,the Simpsons rule and against itself as the number of quadrature points is increased. 
+We are interested in numerically evaluating a definite integral on an interval [a,b]. The Newton-Cotes method interpolates with a polynomial function. Since it is simple to evaluate the definite integral of a polynomial, this method can be used to approximate the value.
 
-To begin we will import the required Python libraries. Of specific importance will be the sympy library that provides tools for symbolic compuation, the scipy module which provides the tools required to effectively find the roots of nonlinear equations required to solve the Vandermonde matrix as well as performing least square regression, and the numpy library which includes many useful matrix operations. 
+We can also approach the problem of evaluating a definite integral by finding a low degree polynomial that approximates the function well in the sense of least squares regression and use the integral of this function as the approximation. This method is called the Gaussian Quadrature method. The following program outline this method. We compare the accuracy and speed of this method against the Newton-Cotes method,the Simpsons rule and against itself as the number of quadrature points is increased. 
+
+To begin we will import the required Python libraries. Of specific importance will be the `sympy` library that provides tools for symbolic computation, the `scipy` module which provides the tools required to effectively find the roots of nonlinear equations required to solve the Vandermonde matrix as well as performing least square regression, and the `numpy` library which includes many useful matrix operations. 
 
 ```{python}
 import math
 import numpy as np
 import matplotlib.pyplot as plt
-from sympy import symbols, integrate, init_printing, pprint, latex, integrate, Poly, cos, lambdify
+from sympy import symbols, integrate, init_printing, pprint, latex, integrate, Poly, cos, lambdify, Add
 from scipy.linalg import lstsq
 from scipy.optimize import root
 from tabulate import tabulate
@@ -22,13 +24,13 @@ from tabulate import tabulate
 init_printing(use_latex=True)
 ```
 
-Before developing the support of the Guassian Qudrature method let's develop a method for determining the coeffiecient of an interpolating polynomial of degree n for any input set of data on the interval [-1, 1]. The choice of this interval will be of special importance when discussing Legendre polynomials. 
+Before diving into the Gaussian Quadrature method let's develop a method for determining the coefficient of an interpolating polynomial of degree n for any input set of data on the interval [-1, 1]. The choice of this interval will be of special importance when discussing Legendre polynomials. 
 
 To motivate this exploration we will find an interpolating polynomial of the function 
 
 \[ f(x) = \cos(x) \]
 
-on the interval [a,b]. With the interpolating polynomial P(x) determined we can utilize the sympy integration method to calculate the value of 
+on the interval [a,b]. With the interpolating polynomial P(x) determined we can utilize the `sympy` integration method to calculate the value of 
 
 \[ \int_{-1}^1 P(x) dx\]
 
@@ -83,11 +85,11 @@ plt.tick_params(axis='y', colors=tick_color, which='both', size=10, width=2)
 plt.show()
 ```
 
-We can now see the function $f(x) = cos(x)$ and the interpolating points at -1, 0, 1. Now we will find a 3rd degree polynomial that interpolates these three points using a Vandermann matrix. We have created the y vector of points that need to be interpolated, and can now solve the sytstem of equations
+We can now see the function $f(x) = cos(x)$ and the interpolating points at -1, 0, 1. Now we will find a 3rd degree polynomial that interpolates these three points using a Vandermann matrix. We have created the y vector of points that need to be interpolated, and can now solve the system of equations
 
 \[Vc = y\]
 
-where y is the the values of the interpolation points evaluted at $f(x)$ and V is the Vandermonde matrix. 
+where y is the the values of the interpolation points evaluated at $f(x)$ and V is the Vandermonde matrix. 
 
 ```{python}
 V = np.vander(quadrature_points, increasing=False)
@@ -110,7 +112,7 @@ Currently this generate all of Legendre Polynomials from 0 to n. For the purpose
 # Define the symbolic variable
 x = symbols('x')
 
-# Store n legrende polys
+# Store n legendre polys
 Pn = []
 
 max_degree = 20
@@ -149,7 +151,7 @@ Now that we can generate P_n(x) for any value n and have confirmed that the outp
 
 Update: The issue with this is that Legendre Polynomials are constructed in the manner that both the function itself and the product of two legendre polynomials of different degrees are orthogonal over the range [-1,1]. This means that the value of the integral should be 0 for n>0. 
 
-Also the legendre(n,x) function from sympy could have been used to generate the legendre polynomials. 
+Also the legendre(n,x) function from `sympy` could have been used to generate the legendre polynomials. 
 
 I do not think the following cell is important for what we are exploring, but calculates the integral over the range [0,1] of the Legendre Polynomials that were generate above.
 
@@ -169,7 +171,7 @@ for i in range(0, degree):
 print(b)
 ```
 
-The following cell contructs the b vector where each cell is the soltion to the integral on the domain [-1,1] of the function x^n for n > 0 where n is an integer. 
+The following cell constructs the b vector where each cell is the solution to the integral on the domain [-1,1] of the function x^n for n > 0 where n is an integer. 
 
 ```{python}
 def generate_b(n):
@@ -283,7 +285,7 @@ def calculate_weights(n):
     return {'n': n, 'weights': weights, 'roots': roots}
 ```
 
-Check solution by looping from 1 to 10 and printing weights and corresponing roots
+Check solution by looping from 1 to 10 and printing weights and corresponding roots
 
 ```{python}
 max_n = 6
@@ -335,8 +337,6 @@ with open('output.tex', 'w') as file:
 https://engcourses-uofa.ca/books/numericalanalysis/numerical-integration/gauss-quadrature/#introduction2
 
 ```{python}
-|import sympy as sp
-
 sp.init_printing(use_latex=True)
 
 x, x1, x2 = sp.symbols('x x1 x2')
